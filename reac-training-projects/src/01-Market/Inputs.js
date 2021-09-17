@@ -5,6 +5,7 @@ import { myContext } from "./DataProvider";
 export default function Inputs() {
   const dartar = useContext(myContext);
   const Dispatch = dartar.action;
+  const state = dartar.info;
   const RefInput = useRef(null);
   const [inputValue, setInputValue] = useState("");
   
@@ -17,28 +18,30 @@ export default function Inputs() {
       <form
         onSubmit={(e) => {
           e.preventDefault();
+          if (dartar.info.group === "Null") {
+            window.alert("Please select a group.");
+            return state;
+          }
+            
           Dispatch({
             type: "addToProduct",
             value: RefInput.current.value,
             group: dartar.info.group,
           });
-              setInputValue("");
-
+          setInputValue("");
         }}
       >
-        
         <input
+          className="Inputs_input"
           type="text"
           ref={RefInput}
-          placeholder="Add new Item ..."
+          placeholder="Add New Products ..."
           required
           onChange={inputHandler}
           value={inputValue}
         />
-        <button type="submit">Add</button>
+        <button className="btn" type="submit">Submit</button>
       </form>
-
-     {/*  <ProductsShower value={dartar.info} /> */}
     </div>
   );
 }

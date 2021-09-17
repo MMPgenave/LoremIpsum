@@ -8,21 +8,6 @@ export default function GroupSelector() {
     const data = context.info.data;
   const [value, setValue] = useState("");
 
-/*   const options = [
-    {
-      value: "Dairy",
-      label: "Dairy",
-    },
-    {
-      value: "Fruits",
-      label: "Fruits",
-    },
-    {
-      value: "Electronic",
-      label: "Electronic",
-    },
-  ]; */
-    
     const options = [];
     data.forEach(element => {
         options.push({ value: element.group, label: element.group });
@@ -34,7 +19,7 @@ export default function GroupSelector() {
     setValue(selectedOption);
   };
   return (
-    <div>
+    <div className="GroupSelector">
       <SelectComp
         value={value}
         Handler={onChangeHandler}

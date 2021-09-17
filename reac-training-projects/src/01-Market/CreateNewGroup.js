@@ -12,7 +12,7 @@ export default function CreateNewGroup() {
       
 
   return (
-    <div>
+    <div className="CreateNewGroup">
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -24,9 +24,10 @@ export default function CreateNewGroup() {
         }}
       >
         <input
+          className="CreateNewGroup_input"
           type="text"
           ref={RefInput}
-          placeholder="Add new Group ..."
+          placeholder="Create New Group ..."
           required
           onChange={(e) => {
             e.preventDefault();
@@ -34,7 +35,9 @@ export default function CreateNewGroup() {
           }}
           value={inputValue}
         />
-        <button type="submit">Add</button>
+        <button className="btn" type="submit">
+          Submit
+        </button>
       </form>
     </div>
   );

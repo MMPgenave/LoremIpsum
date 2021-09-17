@@ -2,7 +2,7 @@ import React from "react";
 import data from "./data";
 import { useReducer } from "react";
 
-const initialState = { group: "", data: data };
+const initialState = { group: "Null", data: data };
 
 //reducer function
 const reducer = (state, action) => {
