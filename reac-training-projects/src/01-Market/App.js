@@ -1,9 +1,11 @@
-import CreateNewProduct from "./CreateNewProduct";
 import DataProvider from "./DataProvider";
-import Products from "./Products";
 import './style.css';
 import mydata from './data';
 import Inputs from "./Inputs";
+import ProductsShower from "./ProductsShower";
+import GroupSelector from './GroupSelector';
+import CreateNewGroup from './CreateNewGroup';
+
 function App() {
 
 
@@ -13,9 +15,13 @@ function App() {
   }
 
   return (
-    <div className="input_container">
+    <DataProvider>
+      <GroupSelector />
+      <CreateNewGroup />
+
       <Inputs />
-    </div>
+      <ProductsShower />
+    </DataProvider>
   );
 }
 

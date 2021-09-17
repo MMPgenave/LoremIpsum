@@ -2,43 +2,40 @@ import React, { useState } from "react";
 import { useContext, useRef } from "react";
 import { myContext } from "./DataProvider";
 
-export default function Inputs() {
+
+export default function CreateNewGroup() {
   const dartar = useContext(myContext);
   const Dispatch = dartar.action;
   const RefInput = useRef(null);
-  const [inputValue, setInputValue] = useState("");
-  
-  const inputHandler = (e)=>{
-    e.preventDefault();
-    setInputValue(prevState => e.target.value);
-  }
+    const [inputValue, setInputValue] = useState("");
+    
+      
+
   return (
-    <div className="inputs">
+    <div>
       <form
         onSubmit={(e) => {
           e.preventDefault();
           Dispatch({
-            type: "addToProduct",
+            type: "addGroup",
             value: RefInput.current.value,
-            group: dartar.info.group,
           });
-              setInputValue("");
-
+          setInputValue("");
         }}
       >
-        
         <input
           type="text"
           ref={RefInput}
-          placeholder="Add new Item ..."
+          placeholder="Add new Group ..."
           required
-          onChange={inputHandler}
+          onChange={(e) => {
+            e.preventDefault();
+            setInputValue((prevState) => e.target.value);
+          }}
           value={inputValue}
         />
         <button type="submit">Add</button>
       </form>
-
-     {/*  <ProductsShower value={dartar.info} /> */}
     </div>
   );
 }

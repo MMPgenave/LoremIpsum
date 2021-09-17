@@ -4,4 +4,23 @@
 
 }
 
+.inputs {
+   background-color: cadetblue;
+   display: flex;
+   flex-direction: row;
+   margin-left:auto;
+   margin-right: auto;
 
+}
+
+.Shower_Container {
+    display: flex;
+   flex-direction: row;
+}
+
+.Products_Container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-right: 10px;
+}
