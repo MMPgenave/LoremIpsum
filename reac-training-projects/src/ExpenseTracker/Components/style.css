@@ -1,0 +1,185 @@
+:root {
+  /* dark shades of primary color*/
+  --clr-primary-1: hsl(205, 86%, 17%);
+  --clr-primary-2: hsl(205, 77%, 27%);
+  --clr-primary-3: hsl(205, 72%, 37%);
+  --clr-primary-4: hsl(205, 63%, 48%);
+  /* primary/main color */
+  --clr-primary-5: hsl(205, 78%, 60%);
+  /* lighter shades of primary color */
+  --clr-primary-6: hsl(205, 89%, 70%);
+  --clr-primary-7: hsl(205, 90%, 76%);
+  --clr-primary-8: hsl(205, 86%, 81%);
+  --clr-primary-9: hsl(205, 90%, 88%);
+  --clr-primary-10: hsl(205, 100%, 96%);
+  /* darkest grey - used for headings */
+  --clr-grey-1: hsl(209, 61%, 16%);
+  --clr-grey-2: hsl(211, 39%, 23%);
+  --clr-grey-3: hsl(209, 34%, 30%);
+  --clr-grey-4: hsl(209, 28%, 39%);
+  /* grey used for paragraphs */
+  --clr-grey-5: hsl(210, 22%, 49%);
+  --clr-grey-6: hsl(209, 23%, 60%);
+  --clr-grey-7: hsl(211, 27%, 70%);
+  --clr-grey-8: hsl(210, 31%, 80%);
+  --clr-grey-9: hsl(212, 33%, 89%);
+  --clr-grey-10: hsl(210, 36%, 96%);
+  --clr-white: #fff;
+  --clr-red-dark: hsl(360, 67%, 44%);
+  --clr-red-light: hsl(360, 71%, 66%);
+  --clr-green-dark: hsl(125, 67%, 44%);
+  --clr-green-light: hsl(125, 71%, 66%);
+  --clr-black: #222;
+  --transition: all 0.3s linear;
+  --spacing: 0.1rem;
+  --radius: 0.25rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --max-width: 1170px;
+  --fixed-width: 620px;
+}
+
+.container {
+  background-color: white;
+  width: 600px;
+}
+
+.FirstSubContianer {
+  display: flex;
+  padding: 15px;
+  margin: 10px;
+}
+.balance {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 30px;
+  margin-right: auto;
+}
+
+button[type="button"] {
+  color: white;
+  background-color: black;
+  height: 40px;
+  padding: 5px;
+  margin-left: auto;
+  font-size: 20px;
+  border-radius: 5px;
+}
+button[type="button"]:hover {
+  font-size: 21px;
+}
+
+button[type="submit"] {
+  width: 200px;
+  height: 40px;
+  padding: 5px;
+  font-size: 20px;
+  border-radius: 5px;
+  color: white;
+  background-color: black;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 20px;
+}
+button[type="submit"]:hover {
+  font-size: 21px;
+}
+.secondContainer {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+}
+
+.income {
+  font-size: x-large;
+
+  padding: auto;
+  text-align: center;
+  border: 2px solid rgb(190, 189, 189);
+  border-radius: 5px;
+  width: 200px;
+  height: 80px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.Incomedoller {
+  color: rgb(24, 114, 24);
+  font-family: century Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-weight: bold;
+}
+.Expense {
+  font-size: x-large;
+  padding: auto;
+  text-align: center;
+  border: 2px solid rgb(190, 189, 189);
+  border-radius: 5px;
+  width: 200px;
+  height: 80px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.expenseDoller {
+  color: rgb(177, 39, 39);
+  font-family: century Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: x-large;
+  font-weight: bold;
+}
+.form_container {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgb(190, 189, 189);
+  border-radius: 5px;
+}
+input[type="number"] {
+  height: 50px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 0.25rem;
+  padding-left: 1rem;
+  font-size: x-large;
+  border: 2px solid rgb(190, 189, 189);
+  border-radius: 5px;
+}
+input[type="text"] {
+  height: 50px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  padding: 0.25rem;
+  padding-left: 1rem;
+  font-size: x-large;
+  border: 2px solid rgb(190, 189, 189);
+  border-radius: 5px;
+}
+.RadioBtns {
+  height: 50px;
+  margin-left: 50px;
+
+  margin-bottom: 20px;
+}
+input[type="radio"] {
+  border: 0px;
+  width: 5%;
+  height: 1.3em;
+  margin-left: 1px;
+}
+label {
+  font-size: x-large;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(18, 18, 19);
+}
+.transaction{
+    margin-bottom: 100px;
+}
+.tansactionItem {
+  font-size: 30px;
+  border: 2px solid rgb(190, 189, 189);
+  border-radius: 5px;
+  margin-top: 5px;
+    font-family: century Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+
+}

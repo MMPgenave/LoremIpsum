@@ -1,74 +1,142 @@
 import React from "react";
 import { useState, useRef } from "react";
+import "./style.css";
 
 function ExpenseAndIncome() {
   const [flag, setFlag] = useState(true);
   const [Income, setIncome] = useState(0);
   const [Expense, setExpense] = useState(0);
+  const [transaction, setTransaction] = useState([]);
 
   return (
-    <div>
-      <button
-        type="button"
-        onClick={() => {
-          setFlag(!flag);
-        }}
-      >
-        {flag ? "New Transaction" : "Cancel Operation"}
-      </button>
-      {flag ? null : <Form info={{Income, Expense, setIncome, setExpense}} />}
-      <div className="income">income : {Income}$</div>
-      <div className="Expense">Expense : {Expense}$</div>
+    <div className="container">
+      <div className="FirstSubContianer">
+        <div className="balance">balance : {Income - Expense}$</div>
+        <button
+          type="button"
+          onClick={() => {
+            setFlag(!flag);
+          }}
+        >
+          {flag ? "New Transaction" : "Cancel Operation"}
+        </button>
+      </div>
+      {flag ? null : (
+        <Form
+          info={{
+            Income,
+            Expense,
+            setIncome,
+            setExpense,
+            transaction,
+            setTransaction,
+          }}
+        />
+      )}
+      <div className="secondContainer">
+        <div className="income">
+          Income <div className="Incomedoller">{Income}$</div>{" "}
+        </div>
+        <div className="Expense">
+          Expense <div className="expenseDoller">{Expense}$</div>{" "}
+        </div>
+      </div>
+      <h1>Transaction </h1>
+      <div className="transaction">
+        {transaction.map((item) => {
+          return <div className="tansactionItem">{item}</div>;
+        })}
+      </div>
     </div>
   );
 }
 
 export default ExpenseAndIncome;
 
-
-
+//Form component
 function Form(props) {
-  const NumInputRef = useRef(null);
-  const DescInputRef = useRef(null);
-  const [NumInputValue, setNumInputValue] = useState(null);
-    const [DescInputValue, setDescInputValue] = useState(null);
-    const income = props.info.Income;
-    const expense = props.info.Expense;
-    const setIncome = props.info.setIncome;
-    const setExpense = props.info.setExpense;
+  const initialState = { amount: 0, description: "" };
+  const [state, setState] = useState(initialState);
+
+  const income = props.info.Income;
+  const expense = props.info.Expense;
+  const setIncome = props.info.setIncome;
+  const setExpense = props.info.setExpense;
+  const transaction = props.info.transaction;
+  const setTransaction = props.info.setTransaction;
+
+  const IncomeRadioRef = useRef(null);
+  const ExpenseRadioRef = useRef(null);
 
   const FormsubmitHandler = (e) => {
-      e.preventDefault();
-      setIncome(prevState => NumInputRef.current.value);
+    console.log(`e.name is : ${e.target.name}`);
+    e.preventDefault();
+    if (IncomeRadioRef.current.checked) {
+      setIncome((prevState) => Number(state.amount) + prevState);
+      //Adding transaction
+      transaction.push(`${state.description}:    +${state.amount}$`);
+      setTransaction((prevState) => transaction);
+    }
+
+    if (ExpenseRadioRef.current.checked) {
+      setExpense((prevState) => Number(state.amount) + prevState);
+      transaction.push(`${state.description}:    -${state.amount}$`);
+      setTransaction((prevState) => transaction);
+    }
   };
   return (
     <div>
-      <form onSubmit={FormsubmitHandler}>
-        <label htmlFor="NumInput">Amount</label>
+      <form onSubmit={FormsubmitHandler} className="form_container">
         <input
           type="number"
           name="NumInput"
-          ref={NumInputRef}
-          value={NumInputValue}
+          placeholder="Amount"
+          value={state.amount}
           onChange={(e) => {
-            setNumInputValue((prevState) => e.target.value);
+            setState((prevState) => {
+              const newState = { ...prevState };
+              newState.amount = e.target.value;
+              return newState;
+            });
           }}
           required
         />
-        <button type="submit">Submit</button>
-        <label htmlFor="DescInput">Description</label>
         <input
           type="text"
           name="DescInput"
           placeholder="Description"
-          ref={DescInputRef}
-          value={DescInputValue}
+          value={state.description}
           onChange={(e) => {
-            setDescInputValue((prevState) => e.target.value);
+            setState((prevState) => {
+              const newState = { ...prevState };
+              newState.description = e.target.value;
+              return newState;
+            });
           }}
           required
         />
-              <button type="submit">Submit</button>
+        <div className="RadioBtns">
+          <input
+            type="radio"
+            className="IncomeRadioBtn"
+            defaultChecked
+            name="type"
+            ref={IncomeRadioRef}
+            value="Income"
+          />
+          <label>Income</label>
+          <input
+            type="radio"
+            name="type"
+            ref={ExpenseRadioRef}
+            value="Expense"
+          />
+          <label>Expense</label>
+        </div>
+
+        <button  type="submit">
+          Add Transaction
+        </button>
       </form>
     </div>
   );
