@@ -44,7 +44,7 @@
   top: 3rem;
   left: 2rem;
   font-size: 2rem;
-  color: blue;
+  color: var(--clr-primary-2);;
   background-color: white;
   border: none;
   cursor: pointer;
@@ -63,15 +63,21 @@
 }
 
 .showModal-btn {
-  margin: 15rem;
+  width: 200px;
+  height: 50px;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
   text-transform: uppercase;
-  background: var(--clr-black);
+  background: var(--clr-primary-2);
   color: var(--clr-white);
   padding: 0.375rem 0.75rem;
   letter-spacing: var(--spacing);
   display: inline-block;
   transition: var(--transition);
-  font-size: 0.875rem;
+  font-size: 1.2rem;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   border: 2px solid var(--clr-black);
   cursor: pointer;
@@ -80,7 +86,7 @@
 }
 
 .showModal-btn:hover {
-  color: var(--clr-black);
+  color: var(--clr-primary-2);
   background: transparent;
 }
 .modal-overlay {
@@ -112,9 +118,11 @@
   display: grid;
   place-items: center;
   position: relative;
+  font-size: 50px;
+  font-weight: bold;
 }
 
-.close-modal-btn {
+.close-btn {
   position: absolute;
   top: 16px;
   right: 16px;
@@ -124,29 +132,36 @@
   color: var(--clr-red-dark);
   cursor: pointer;
 }
-
+.close-btn:hover {
+  color: var(--clr-red-light);
+}
 .sidebar {
-    background-color: var(--clr-grey-10);
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 30%;
-    transition: all .5s linear;
-    transform: translate(-100%);
-
+  background-color: var(--clr-grey-10);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 30%;
+  transition: all 0.5s linear;
+  transform: translate(-100%);
 }
 
 .show-sidebar {
- transform: translate(0);
+  transform: translate(0);
 }
-.sidebar-content{
-    display:flex;
-    flex-direction: column;
-    margin-top: 50px;
-    color:black;
-    font-weight: bold;
-    font-size: 3rem;
+header {
+  color: var(--clr-grey-1);
+  font-size: 30px;
+  font-weight: bold;
+  margin:30px; 
+}
+.sidebar-content {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  font-weight: bold;
+  font-size: 3rem;
 }
 
 .link {
@@ -154,9 +169,32 @@
   margin-top: 15px;
 }
 
-.link:hover{
-  background-color: bisque;
+.link:hover {
+  background-color: var(--clr-primary-9);
 }
-a {
+.sidebar-content a {
+  
+  display: flex;
+  align-items: center;
   text-decoration: none;
+  font-size: 35px;
+  color:var(--clr-primary-1);
+}
+.social {
+  position: absolute;
+  bottom: 10%;
+  left: 15%;
+
+  display: flex;
+}
+.social-item {
+  margin-right: 20px;
+}
+.social a {
+  color:var(--clr-primary-2);
+}
+.social a:hover {
+  color: var(--clr-primary-3);
+  font-size: 37px;
+
 }

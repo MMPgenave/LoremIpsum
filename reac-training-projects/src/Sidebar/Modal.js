@@ -14,7 +14,7 @@ function Modal() {
       <div className="modal-content">
         Modal Content
         <button
-          className="close-modal-btn"
+          className="close-btn"
           onClick={() => {
             dispatch({ type: "modal" });
           }}

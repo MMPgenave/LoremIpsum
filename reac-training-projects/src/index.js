@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import style from './Index.css';
-import App from './ExpenseTracker/App';
+import App from './Sidebar/App';
 
 ReactDOM.render(
   <React.StrictMode>
