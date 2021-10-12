@@ -1,5 +1,6 @@
 import React from "react";
 import { useReducer, useEffect } from "react";
+import DooPicture from "./DooPicture.jpg";
 export const mycontext = React.createContext();
 const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
 
@@ -32,8 +33,13 @@ export function DataProvidor(props) {
       const response =  await fetch(url);
       const Data = await response.json();
         dispatch({ type: "Loading", value: false });
-        const newItem={idDrink: 11873,strDrink: "Seze"}
-        Data.drinks.push(newItem);
+        const newItem = {
+          idDrink: "11873",
+          strDrink: "Seze",
+          strDrinkThumb: DooPicture,
+          strCategory:"Nuclear",
+        };
+        Data.drinks.unshift(newItem);
 
       dispatch({ type: "DataFetching", value: Data.drinks });
     } catch (error) {
