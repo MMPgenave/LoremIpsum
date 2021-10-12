@@ -14,7 +14,8 @@ const reducer = (state, action) => {
       const newState = { ...state };
       newState.Data = action.value;
       return newState;
-    }
+      }
+      
   }
 };
 const initialState = {
@@ -28,9 +29,12 @@ export function DataProvidor(props) {
   const fetchData = async () => {
     dispatch({ type: "Loading", value: true });
     try {
-      const response = await fetch(url);
+      const response =  await fetch(url);
       const Data = await response.json();
-      dispatch({ type: "Loading", value: false });
+        dispatch({ type: "Loading", value: false });
+        const newItem={idDrink: 11873,strDrink: "Seze"}
+        Data.drinks.push(newItem);
+
       dispatch({ type: "DataFetching", value: Data.drinks });
     } catch (error) {
       dispatch({ type: "Loading", value: false });

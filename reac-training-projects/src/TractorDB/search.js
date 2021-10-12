@@ -1,11 +1,10 @@
-import React from 'react'
+import React from "react";
 
-export function search() {
-    return (
-        <div>
-           dartar 
-        </div>
-    )
+export function Search() {
+  return (
+    <div>
+      <label>Search for specific drink</label>
+      <input type="text" />
+    </div>
+  );
 }
-
- 
