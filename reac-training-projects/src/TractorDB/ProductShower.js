@@ -17,8 +17,10 @@ export function ProductShower() {
               <div key={Item.idDrink} className="Item">
                 <img src={Item.strDrinkThumb} alt={Item.strDrink} />
                 <div className="footer">
-                  <h3>{Item.strDrink}</h3>
-                  <Link to={`/${Item.idDrink}`}>Learn More</Link>
+                  <h1>{Item.strDrink}</h1>
+                  <h3>{Item.strGlass}</h3>
+                  <h4>{Item.strAlcoholic}</h4>
+                  <Link className="Detail-Link" to={`/${Item.idDrink}`}>Details</Link>
                 </div>
               </div>
             );

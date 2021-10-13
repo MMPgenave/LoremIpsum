@@ -35,9 +35,11 @@ export function DataProvidor(props) {
         dispatch({ type: "Loading", value: false });
         const newItem = {
           idDrink: "11873",
-          strDrink: "Seze",
+          strDrink: "Sedo",
           strDrinkThumb: DooPicture,
-          strCategory:"Nuclear",
+          strCategory: "Atomic",
+          strGlass: "Shot Glass",
+          strAlcoholic:"Nuclear"
         };
         Data.drinks.unshift(newItem);
 
