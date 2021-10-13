@@ -7,10 +7,13 @@ import { Search } from './search';
 export function Home() {
     const context = useContext(mycontext);
     const isLoading = context.info.isLoading;
-    console.log(`isLoading in Home is :${isLoading}`)
+    console.log(`Data length :${context.info.Data.length}`);
     if (isLoading) {
         return(<Loading />)
     }
+    /* if (context.info.Data.length <1) {
+        return (<div>No Item Matches your Search</div>)
+    } */
     return (
         <div>
             <Search />

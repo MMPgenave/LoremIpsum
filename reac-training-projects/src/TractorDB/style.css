@@ -1,3 +1,6 @@
+body {
+  background-color: rgb(241, 238, 238);
+}
 /*  Styling Navbar Component */
 .Navbar {
   height: 6rem;
@@ -141,7 +144,6 @@
 .section {
   margin-top: 10px;
   padding: 5rem 0;
-  background-color: rgb(241, 238, 238);
 }
 .Header {
   color: #a77232;
@@ -231,83 +233,97 @@
 
 /* Styling SingleProductInfo Component */
 .single-product-container {
- background-color:  rgb(241, 238, 238);
+  background-color: rgb(241, 238, 238);
   padding: 15px;
   margin-top: 5px;
 }
 .header {
-text-align: center;
-font-size: 50px;
-text-transform: uppercase;
-margin-bottom: 50px;
-margin-top: 30px;
+  text-align: center;
+  font-size: 50px;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+  margin-top: 30px;
 }
 .single-product-Info {
   padding: 20px;
   display: flex;
 }
-.single-product-Info img{
+.single-product-Info img {
   width: 500px;
   height: 50%;
   object-fit: cover;
   border-radius: 10px;
   margin-left: 10%;
-  
 }
-.Product-Info{
+.Product-Info {
   margin-top: auto;
   margin-bottom: auto;
   margin-left: 2%;
   display: flex;
   flex-direction: column;
 }
-.Information{
+.Information {
   display: flex;
   flex-direction: row;
   align-items: center;
   margin-bottom: 20px;
 }
-.Information h3{
-font-size: 35px;
-background-color: rgb(219, 179, 179);  
-border-radius: 7px;
-padding:3px;
+.Information h3 {
+  font-size: 35px;
+  background-color: rgb(219, 179, 179);
+  border-radius: 7px;
+  padding: 3px;
 }
 
 .Information p {
-font-size: 30px;
-margin-left: 10px;
-font-weight: bold;
-color: rgb(36, 35, 35);
+  font-size: 30px;
+  margin-left: 10px;
+  font-weight: bold;
+  color: rgb(36, 35, 35);
 }
 
 /* End of Styling SingleProductInfo Component */
 
-
 /* Styling Search Component */
 
 .search {
-  margin-top: 30px;
-  background-color: rgb(247, 199, 199);
-  margin-bottom: 20px;
+  margin-top: 60px;
+  background-color: rgb(248, 232, 201);
+  margin-bottom: 0px;
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 30px;
   width: 600px;
-  height: 150px;
+  height: 170px;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 10px;
+  box-shadow: 2px 2px 7px rgb(82, 23, 23);
 }
 
 .search input {
-height: 60px;
-width: 100%;
-padding: 0.5rem;
+  height: 60px;
+  width: 100%;
+  padding: 0.5rem;
   font-size: 2rem;
-  font-family:'Times New Roman', Times, serif;
+  font-family: flamenco;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 10px;
+  background-color: rgb(245, 237, 237);
 }
 .search label {
   text-align: center;
   font-size: 40px;
-  margin-bottom: 5px;
+  font-family: flamenco;
+}
+/* end of Styling Search Component */
+
+
+/* styling About component */
+.about{
+  margin-top: 15%;
+  font-size: 50px;
+  text-align: center;
 }

@@ -2,8 +2,8 @@ import React from 'react'
 
 export function About() {
     return (
-        <div>
-          About pages dartar  
+        <div className="about">
+          About page is empty for now!  
         </div>
     )
 }
