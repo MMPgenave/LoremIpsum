@@ -13,7 +13,7 @@ export function Home() {
     }
     return (
         <div>
-            {/* <Search /> */}
+            <Search />
         <ProductShower />
       </div>
     );

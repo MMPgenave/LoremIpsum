@@ -20,7 +20,9 @@ export function ProductShower() {
                   <h1>{Item.strDrink}</h1>
                   <h3>{Item.strGlass}</h3>
                   <h4>{Item.strAlcoholic}</h4>
-                  <Link className="Detail-Link" to={`/${Item.idDrink}`}>Details</Link>
+                  <Link className="Link-footer" to={`/${Item.idDrink}`}>
+                    <div className="Detail-Link">Details</div>
+                  </Link>
                 </div>
               </div>
             );
