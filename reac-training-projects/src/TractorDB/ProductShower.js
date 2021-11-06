@@ -16,12 +16,12 @@ export function ProductShower() {
             return (
               <div
                 key={Item.idDrink}
-                className="card col-xxl mx-auto my-2  shadow"
+                className="card border-secondary col-xxl-3 rounded  mx-auto my-3 shadow"
                 style={{ width: "18rem" }}
               >
                 <img
                   src={Item.strDrinkThumb}
-                  className="card-img-top"
+                  className="card-img-top rounded "
                   alt={Item.strDrink}
                 />
                 <div className="card-body">

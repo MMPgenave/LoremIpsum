@@ -3,10 +3,11 @@
 
 
 
-nav {
+nav , .card , .single-product-container{
     font-family:flamenco;
         font-size: xx-large;
 }
+
 
 /* import bootstrap to set changes */
 @import "~bootstrap/scss/bootstrap";
