@@ -4,6 +4,8 @@ import { useContext } from 'react';
 import { mycontext } from './DataProvidor';
 import { Loading } from './Loading';
 import { Search } from './search';
+import { NumberOfDrinks } from "./NumberOfDrinks"; 
+
 export function Home() {
     const context = useContext(mycontext);
     const isLoading = context.info.isLoading;
@@ -15,8 +17,9 @@ export function Home() {
         return (<div>No Item Matches your Search</div>)
     } */
     return (
-        <div>
-            <Search />
+      <div>
+        <Search />
+        <NumberOfDrinks />
         <ProductShower />
       </div>
     );

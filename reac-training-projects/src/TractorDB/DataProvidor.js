@@ -15,6 +15,7 @@ const reducer = (state, action) => {
       const newState = { ...state };
       newState.Data = action.value;
       newState.DataCopy = action.value;
+      newState.NumberofDrink = action.value.length;
       return newState;
     }
     case "search": {
@@ -23,15 +24,17 @@ const reducer = (state, action) => {
       if (value === "") {
         const newState = { ...state };
         newState.Data = state.DataCopy;
+        newState.NumberofDrink = state.DataCopy.length;
         return newState;
       } else {
         const newState = { ...state };
-        const filteredProducts = newState.Data.filter(
+        const filteredProducts = newState.DataCopy.filter(
           (p) =>
             p.strDrink.toLowerCase().includes(value.toLowerCase()) ||
             p.strGlass.toLowerCase().includes(value.toLowerCase())
         );
         newState.Data = filteredProducts;
+        newState.NumberofDrink = filteredProducts.length;
         return newState;
       }
     }
@@ -41,6 +44,7 @@ const initialState = {
   isLoading: true,
   Data: [],
   DataCopy: [],
+  NumberofDrink: 0,
 };
 export function DataProvidor(props) {
   const [state, dispatch] = useReducer(reducer, initialState);
