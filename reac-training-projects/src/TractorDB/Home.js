@@ -18,6 +18,7 @@ export function Home() {
     } */
     return (
       <div>
+        
         <Search />
         <NumberOfDrinks />
         <ProductShower />

@@ -10,24 +10,32 @@ export function ProductShower() {
   return (
     <div className="section">
       <div className="Header">Cocktails</div>
-      <div className="Item-continer">
-        
+      <div className="container ">
+        <div className="row">
           {Data.map((Item) => {
             return (
-              <div key={Item.idDrink} className="Item">
-                <img src={Item.strDrinkThumb} alt={Item.strDrink} />
-                <div className="footer">
-                  <h1>{Item.strDrink}</h1>
+              <div
+                key={Item.idDrink}
+                className="card col-xxl mx-auto my-2  shadow"
+                style={{ width: "18rem" }}
+              >
+                <img
+                  src={Item.strDrinkThumb}
+                  className="card-img-top"
+                  alt={Item.strDrink}
+                />
+                <div className="card-body">
+                  <h1 className="card-title">{Item.strDrink}</h1>
                   <h3>{Item.strGlass}</h3>
                   <h4>{Item.strAlcoholic}</h4>
-                  <Link className="Link-footer" to={`/${Item.idDrink}`}>
-                    <div className="Detail-Link">Details</div>
+                  <Link className="btn btn-primary" to={`/${Item.idDrink}`}>
+                    Details
                   </Link>
                 </div>
               </div>
             );
           })}
-      
+        </div>
       </div>
     </div>
   );

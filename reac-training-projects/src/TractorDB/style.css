@@ -141,11 +141,12 @@ body {
 /* End of Styling Loading Component */
 
 /* Styling ProductShower Component */
+
 .section {
   margin-top: 10px;
   padding: 5rem 0;
-}
-.Header {
+} 
+ .Header {
   color: #a77232;
   font-family: flamenco;
   font-size: 80px;
@@ -154,12 +155,12 @@ body {
   text-align: center;
   margin-bottom: 3.5rem;
   margin-top: 1rem;
-}
+} 
+/* 
 .Item-continer {
   width: 80vw;
   margin: 0 auto;
-  /*   max-width: 1170px;
- */
+  
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   row-gap: 1rem;
@@ -228,7 +229,7 @@ body {
 .Link-footer {
   text-decoration: none;
 }
-
+ */
 /* End of Styling ProductShower Component */
 
 /* Styling SingleProductInfo Component */
@@ -315,7 +316,7 @@ body {
 }
 .search label {
   text-align: center;
-  font-size: 40px;
+  font-size: 2rem;
   font-family: flamenco;
 }
 /* end of Styling Search Component */
@@ -334,7 +335,7 @@ body {
 
 .NumberOfDrinks {
   text-align: center;
-  font-size: 33px;
+  font-size: 2rem;
   font-family: flamenco;
   margin-top: 30px;
 }
