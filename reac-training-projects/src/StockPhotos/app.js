@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { FaHeart } from "react-icons/fa";
 import "./styles.css";
 
 const defaulImg =
@@ -19,6 +20,7 @@ export default function App() {
     axios
       .get(URL)
       .then((resp) => {
+        console.log(resp.data);
         setLoading(true);
         const newPhotos = [...photos];
         for (let i = 0; i < resp.data.length; i++) {
@@ -71,6 +73,11 @@ export default function App() {
                 src={item.urls ? item.urls.full : defaulImg}
                 alt={"dartar"}
               />
+              <div className="info">
+                <div>
+                  {item.likes} <FaHeart />
+                </div>
+              </div>
             </div>
           );
         })}
