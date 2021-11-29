@@ -13,23 +13,46 @@ export default function App() {
   const [photos, setPhotos] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
+  const [searchValue, setSearchValue] = useState(""); //input tag value
+  const inputRef = React.useRef(null); //refrence to input element
+  console.log(`Page :${page}`);
+  console.log(`searchValue : ${searchValue}`);
+
   //Fetching function
   const getPhotos = (url) => {
-    let URL;
-    URL = `${url}?client_id=${process.env.REACT_APP_ACCESS_KEY}&page=${page}`;
     axios
-      .get(URL)
+      .get(url)
       .then((resp) => {
-        console.log(resp.data);
         setLoading(true);
-        const newPhotos = [...photos];
-        for (let i = 0; i < resp.data.length; i++) {
-          //adding resp.data to newphotos
-          newPhotos.push(resp.data[i]);
-        }
-        flag.current = true;
+        if (!searchValue) {
+          //mainUrl
+          const newPhotos = [...photos];
+          console.log("data from mainUrl =", resp.data);
+          for (let i = 0; i < resp.data.length; i++) {
+            //adding resp.data to newphotos
+            newPhotos.push(resp.data[i]);
+          }
+          flag.current = true;
+          setPhotos(newPhotos);
+        } else {
+          //searchUrl
 
-        setPhotos(newPhotos);
+          let newPhotos;
+          if (page===1) {
+            newPhotos = [];
+          } else {
+            newPhotos = [...photos];
+          }
+
+          console.log("data from search query =", resp.data.results);
+          for (let i = 0; i < resp.data.results.length; i++) {
+            //adding resp.data to newphotos
+            newPhotos.push(resp.data.results[i]);
+          }
+          flag.current = true;
+          setPhotos(newPhotos);
+        } //end search section
+
         setLoading(false);
       })
       .catch((err) => {
@@ -39,16 +62,24 @@ export default function App() {
 
   //Initial photo fetching
   React.useEffect(() => {
-    getPhotos(mainUrl);
-  }, [page]);
+    //using the searchValue state to toggle between mainUrl and searchUrl
+    let URL;
+    if (searchValue) {
+      URL = `${searchUrl}?client_id=${process.env.REACT_APP_ACCESS_KEY}&page=${page}&query=${searchValue}`;
+    } else {
+      URL = `${mainUrl}?client_id=${process.env.REACT_APP_ACCESS_KEY}&page=${page}`;
+    }
+    getPhotos(URL);
+  }, [page, searchValue]);
 
   //listening for scroll event after the DOM mounted
+
   React.useEffect(() => {
     const Event = window.addEventListener("scroll", () => {
       const variable = window.scrollY + window.innerHeight;
       if (variable >= document.body.scrollHeight) {
         if (flag.current) {
-          console.log("   we are at the bottom of the page !");
+          console.log(" we are at the bottom of the page !");
           flag.current = false;
           setPage((prev) => prev + 1);
           setLoading(true);
@@ -58,21 +89,45 @@ export default function App() {
 
     return () => {
       window.removeEventListener("scroll", Event);
-      console.log("cleanuup");
+      console.log("cleanup");
     };
   }, []);
 
+  //Search function
+  const searchIt = (e) => {
+    e.preventDefault();
+    //using the searchValue state to toggle between mainUrl and searchUrl
+    setSearchValue((prev) => inputRef.current.value);
+    setPage(1);
+  };
   return (
     <>
       <h1>Getting Photos from Unsplash</h1>
+      <form className="search">
+        <input type="text" ref={inputRef} required />
+        <button type="submit" onClick={(e) => searchIt(e)}>
+          submit
+        </button>
+      </form>
       <div className="container" id="dar">
         {photos.map((item) => {
           return (
             <div className="single_item" key={item.id}>
-              <img
+              {/* <img
                 src={item.urls ? item.urls.full : defaulImg}
                 alt={"dartar"}
-              />
+              /> */}
+              <div
+                style={{
+                  border: "2px solid red",
+                  height: "5rem",
+                  color: "blue",
+                  width:"2rem"
+                }}
+              >
+                
+                {item.likes}
+              </div>
               <div className="info">
                 <div>
                   {item.likes} <FaHeart />
